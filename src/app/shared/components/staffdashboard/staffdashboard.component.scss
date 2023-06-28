@@ -1,0 +1,67 @@
+
+.example-card {
+  max-width: 350px;
+  padding: 10px;
+ 
+}
+
+ 
+  // .center{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: 100vh;
+  //   flex-direction: column;
+  // }
+
+  // .size{
+  //   font-size: 60px;
+  //   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  // }
+
+  // .para{
+  //   font-size: 25px;
+  //   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  // }
+
+  // .color{
+  //   color: red;
+  // }
+
+  // .btn{
+  //   margin-left: 20px;
+  //   color: #fff;
+  // }
+
+
+  
+    .para{
+        margin-bottom: 20px;
+          font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+
+
+.leave-count{
+    h2{
+        font-size: 64px;
+    }
+}
+.box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    flex-direction: column;
+}
+
+#btn{
+    height: 40px;
+}
+
+.reas{
+    display: flex;
+    flex-direction: row;
+}

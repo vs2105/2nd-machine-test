@@ -1,0 +1,101 @@
+ 
+  <div class="box mt-4" *ngIf="!leavestatusArr">
+    <h2 class="text-danger">Not applied any leave yet</h2>
+    <button mat-raised-button color="primary" (click)="OpenDialogBox()">+Apply Leave</button>     
+</div>  
+
+<ng-container *ngIf="leavestatusArr.length > 0">
+  <div class="row mt-4" >
+    <button mat-raised-button color="primary" id="btn" (click)="OpenDialogBox()">+Apply Leave</button>     
+      <div class="col-md-3 leave-count text-center">
+          <h2 class="para">{{TotalLeave}}</h2>
+          <p class="para">Total Leaves</p>
+        </div>
+        <div class="col-md-3 leave-count text-center">
+          <h2 class="para">{{totalApproved}}</h2>
+          <p class="para"> Approved </p>
+        </div>
+        <div class="col-md-3 leave-count text-center">
+          <h2 class="para" >{{totalRejected}}</h2>
+          <p class="para"> Rejected </p>
+        </div>        
+  </div>
+
+   <div class="row mt-5" *ngIf="leavestatusArr" > 
+    <div class="col-sm-4" *ngFor="let staff of leavestatusArr">
+      <mat-card class="example-card mb-4">
+        <div class="row">
+          <div class="col-12">
+             <h2 class="text-uppercase para">{{staff.name}}</h2>
+            <h3 class="para">Leave From {{staff.startdate| date}} To {{staff.enddate|date}}</h3>
+            <h3 class="para">Number of days {{staff.leavedays}}</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3 class="para"><strong>Reason:</strong></h3>
+            
+            <p class="text-capitalize para">{{staff.reason}}</p>
+          </div>
+        </div>
+        
+           <div>
+          <h4><strong class="para" >Status</strong>  </h4>  
+             <p  class="para"> {{staff.status}}</p>
+           </div>
+        
+      </mat-card>
+    </div>
+  </div> 
+</ng-container>
+ 
+    <!-- <div class="row mt-4" *ngIf="leavestatusArr.length > 0">
+      <button mat-raised-button color="primary" (click)="OpenDialogBox()">+Apply Leave</button>     
+        <div class="col-md-3 leave-count text-center">
+            <h2>{{TotalLeave}}</h2>
+            <p >Total Leaves</p>
+          </div>
+          <div class="col-md-3 leave-count text-center">
+            <h2 >{{totalApproved}}</h2>
+            <p > Approved </p>
+          </div>
+          <div class="col-md-3 leave-count text-center">
+            <h2 >{{totalRejected}}</h2>
+            <p> Rejected </p>
+          </div>
+          
+    </div>
+  
+
+
+     <div class="row" *ngIf="leavestatusArr" > 
+      <div class="col-sm-4" *ngFor="let staff of leavestatusArr">
+        <mat-card class="example-card mb-4">
+          <div class="row">
+            <div class="col-12">
+               <h2 class="text-uppercase">{{staff.name}}</h2>
+              <h3>Leave From{{staff.startdate| date}} To {{staff.enddate|date}}</h3>
+              <h3>Number of days {{staff.leavedays}}</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h3><strong>Reason:</strong></h3>
+              
+              <h4 class="text-capitalize">{{staff.reason}}</h4>
+            </div>
+          </div>
+          
+             <div>
+            <h4><strong>Status</strong></h4>  {{staff.status}}
+             </div>
+          
+        </mat-card>
+      </div>
+    </div>  -->
+
+ 
+
+    
+   
+

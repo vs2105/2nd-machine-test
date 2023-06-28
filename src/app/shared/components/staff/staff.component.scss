@@ -1,0 +1,26 @@
+
+.staffForm{
+    p{
+        margin-bottom: 20px;
+    }
+}
+
+.leave-count{
+    h2{
+        font-size: 64px;
+    }
+}
+.box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    flex-direction: column;
+}
+
+.reas{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,168 @@
+
+
+
+<div class="main items">
+  <mat-card class="card1">  
+      <form class="login" [formGroup]="loginform" (ngSubmit)="onloginform()" *ngIf="ishavingaccount">
+        <div class="row">
+          <!-- <h2 class=" text-center text-capitalize">log In</h2> -->
+          <div class="col-md-12">
+           <mat-form-field>
+             <mat-label>Username</mat-label>
+             <input matInput placeholder="Username" #username formControlName="username">
+           </mat-form-field>
+           <ng-container *ngIf="getusernamecontrol.invalid && getusernamecontrol.touched">
+             <mat-error>Username is Mandatory*</mat-error>
+           </ng-container>
+           <mat-form-field class="example-full-width">
+             <mat-label>Password</mat-label>
+             <input matInput placeholder="Password" [type]="inputtype" #password formControlName="password">
+             <mat-icon class="iconclick" matSuffix (click)="onvisible()">{{icon}}</mat-icon>
+           </mat-form-field>
+  
+             <ng-container *ngIf="getallcontrols['password'].invalid && getallcontrols['password'].touched">
+              <mat-error>Password is Mandatory</mat-error>
+             </ng-container>
+            <div class="mt-4">
+         <button mat-raised-button color="primary" id='mybutton' type="submit"
+        (click)="onuserlogin()" >Login</button>           
+       </div>
+          </div>
+        </div>  
+      </form>  
+        <!-- //register from start from here -->
+      <form class="signin" *ngIf="!ishavingaccount" [formGroup]="signupform" (ngSubmit)="onsignup()">
+        <!-- <h2 class=" text-center text-capitalize">sign up</h2> -->
+        <ng-container *ngFor="let user of userole">
+           <label for="{{user}}" class="radio">
+            <input type="radio"  [value]="user" formControlName="userole">{{user}}
+           </label>
+        </ng-container>
+        <ng-container *ngIf="getallsignupcontrol['userole'].invalid && getallsignupcontrol['userole'].touched">
+          <mat-error *ngIf="getallsignupcontrol['userole'].hasError('required')">Select at least one field</mat-error>
+        </ng-container>
+        <div class="row">
+         
+         <div class="col-md-6">
+         
+           <mat-form-field>
+               <mat-label>First Name</mat-label>
+               <input matInput placeholder="First Name"  formControlName="fname">
+             </mat-form-field>
+             <ng-container *ngIf="getallsignupcontrol['fname'].invalid && getallsignupcontrol['fname'].touched">
+              <mat-error *ngIf="getallsignupcontrol['fname'].hasError('required')">First Name is Required</mat-error>
+            </ng-container>
+            <ng-container *ngIf="getallsignupcontrol['fname'].invalid && getallsignupcontrol['fname'].dirty">
+                <mat-error *ngIf="getallsignupcontrol['fname'].hasError('nospacebareeror')">
+                  {{getallsignupcontrol['fname'].errors?.['nospacebareeror']}}
+                </mat-error>
+            </ng-container>
+       </div>
+       <div class="col-md-6">
+         <mat-form-field>
+             <mat-label>Last Name</mat-label>
+             <input matInput placeholder="Last Name" formControlName="lname">
+           </mat-form-field>
+           <ng-container *ngIf="getallsignupcontrol['lname'].invalid && getallsignupcontrol['lname'].touched">
+            <mat-error *ngIf="getallsignupcontrol['lname'].hasError('required')">last Name is Required</mat-error>
+          </ng-container>
+          <ng-container *ngIf="getallsignupcontrol['lname'].invalid && getallsignupcontrol['lname'].dirty">
+            <mat-error *ngIf="getallsignupcontrol['lname'].hasError('nospacebareeror')">
+              {{getallsignupcontrol['lname'].errors?.['nospacebareeror']}}
+            </mat-error>
+        </ng-container>
+     </div>
+
+     <div class="col-md-6">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+      </mat-form-field>
+      <ng-container *ngIf="getallsignupcontrol['email'].invalid && getallsignupcontrol['email'].touched">
+          <mat-error *ngIf="getallsignupcontrol['email'].hasError('required')">Email is Required</mat-error>
+      </ng-container>
+      <ng-container *ngIf="getallsignupcontrol['email'].invalid && getallsignupcontrol['email'].touched
+       && getallsignupcontrol['email'].dirty">
+          <mat-error *ngIf="getallsignupcontrol['email'].hasError('pattern')">Enter Valid Email</mat-error>
+      </ng-container>
+     </div>
+     <div class="col-md-6">
+      <mat-form-field>
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="Contact"  formControlName="Contact">
+      </mat-form-field>
+      <ng-container *ngIf="getallsignupcontrol['Contact'].invalid && getallsignupcontrol['Contact'].touched">
+        <mat-error *ngIf="getallsignupcontrol['Contact'].hasError('required')">Contact is Required</mat-error>
+    </ng-container>
+    <ng-container *ngIf="getallsignupcontrol['Contact'].invalid && getallsignupcontrol['Contact'].dirty">
+      <mat-error *ngIf="getallsignupcontrol['Contact'].hasError('nospacebareeror')">
+        {{getallsignupcontrol['Contact'].errors?.['nospacebareeror']}}
+      </mat-error>
+  </ng-container>
+  <ng-container *ngIf="getallsignupcontrol['Contact'].invalid 
+       && getallsignupcontrol['Contact'].dirty">
+          <mat-error *ngIf="getallsignupcontrol['Contact'].hasError('pattern')">Enter Number only  Character not allowed</mat-error>
+      </ng-container>
+     </div>
+
+     <div class="col-md-6">
+      <mat-form-field>
+        <mat-label>Department</mat-label>
+        <mat-select formControlName="dept">
+          <mat-option *ngFor="let dept of department" [value]="dept" >{{dept}}</mat-option >  
+        </mat-select>
+      </mat-form-field> 
+      <ng-container *ngIf="getallsignupcontrol['dept'].invalid && getallsignupcontrol['dept'].touched">
+        <mat-error *ngIf="getallsignupcontrol['dept'].hasError('required')">Department is Required</mat-error>
+    </ng-container>
+     </div>
+     <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username"  formControlName="username">
+          </mat-form-field>
+          <ng-container *ngIf="getallsignupcontrol['username'].invalid && getallsignupcontrol['username'].touched">
+            <mat-error *ngIf="getallsignupcontrol['username'].hasError('required')">Username is Required</mat-error>
+        </ng-container>
+        <ng-container *ngIf="getallsignupcontrol['username'].invalid && getallsignupcontrol['username'].dirty">
+          <mat-error *ngIf="getallsignupcontrol['username'].hasError('nospacebareeror')">
+            {{getallsignupcontrol['username'].errors?.['nospacebareeror']}}
+          </mat-error>
+      </ng-container>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password" formControlName="password">
+          </mat-form-field> 
+          <ng-container *ngIf="getallsignupcontrol['password'].invalid && getallsignupcontrol['password'].touched">
+            <mat-error *ngIf="getallsignupcontrol['password'].hasError('required')">Password is Mandatory</mat-error>
+            <mat-error *ngIf="getallsignupcontrol['password'].hasError('pattern')">Password maximum length should be 8, one capital letter,one lowarcase letter one special character 
+              and one number </mat-error>
+        </ng-container>
+        </div>
+        <div class="pt-1 mt-2">
+          <button mat-raised-button color="primary" id='mybutton' type="submit" [disabled]="signupform.invalid" (click)="onregisteruser()">Register</button>
+        </div> 
+        
+        </div>
+       
+      </form>
+    
+        <div class="mt-2">
+          <mat-card-actions>
+            <p style="color: #000;" *ngIf="ishavingaccount">
+              Not Register Yet?
+              <a href="javascript:;" (click)="ishavingaccount = !ishavingaccount"> Register</a>
+          
+            <p style="color: #393f81;" *ngIf="!ishavingaccount">
+              <a href="javascript:;" (click)="ishavingaccount = !ishavingaccount">Already Registerd? </a>
+           </mat-card-actions>
+        </div>
+      
+       
+      
+  </mat-card>
+</div>
+ 

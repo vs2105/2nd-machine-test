@@ -1,0 +1,80 @@
+<div class="center" *ngIf="staffleave.length === 0">
+  <h2>No leave Request Avaliable</h2>
+</div>
+
+ <div class="row mt-4" *ngIf="staffleave.length > 0" >
+  <div class="col-sm-4" *ngFor="let staff of staffleave">
+    <mat-card class="mb-4">
+      <div class="row">
+        <div class="col-12">
+           <h2 class="text-uppercase">{{staff.name}}</h2>
+          <h3>Leave From{{staff.startdate| date}} To {{staff.enddate|date}}</h3>
+          <h3>Number of days {{staff.leavedays}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3>Reason:</h3>
+          
+          <h4 class="text-capitalize">{{staff.reason}}</h4>
+        </div>
+      </div>
+      <mat-card-actions>
+       <ng-container>
+        <button mat-raised-button color="primary"  (click)="onbtnClick('Approved',staff)" >Approve</button>
+        <button mat-raised-button color="warn" (click)="onbtnClick('Rejected',staff)">Reject</button>
+       </ng-container>
+        <!-- *ngIf="staff.status === 'Approved' ">
+           
+       
+
+       <ng-container *ngIf="staff.status === 'Rejected' ">
+        
+    </ng-container> -->
+
+      </mat-card-actions>
+      
+    </mat-card>
+  </div>
+
+</div> 
+
+<div class="row">
+  <div class="col-sm-4 mt-1 mb-4"*ngFor="let staff of updatearray" >
+    <mat-card>
+      <div class="row">
+        <div class="col-12">
+          <h2>{{staff.name}}</h2>
+          <h3>Leave From {{staff.startdate| date}} To  {{staff.enddate|date}}</h3>
+          <h3>Number of days {{staff.leavedays}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3>Reason:</h3>
+          <h3>{{staff.reason}}</h3>
+        </div>
+      </div>
+      <mat-card-actions>
+         <div *ngIf="staff.status === 'Approved' " class="approve d-flex">
+           <mat-icon class="green">check </mat-icon>  
+           <div class="text-success">
+            {{afterclickapproved}}
+            <!-- {{staff.status}} -->
+           </div>
+         </div>
+         <div *ngIf="staff.status === 'Rejected' " class="approve d-flex">
+          <mat-icon color="warn">close </mat-icon>
+          <div class="text-danger">
+            {{afterclickrejected}}
+           <!-- {{staff.status}} -->
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+ 
+ 
+

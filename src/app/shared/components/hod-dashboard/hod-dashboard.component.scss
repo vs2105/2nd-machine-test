@@ -1,0 +1,25 @@
+.example-card {
+    max-width: 400px;
+  }
+
+  .color{
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color: red;
+  }
+  .secondpart{
+    flex-direction: column;
+  }
+  .green{
+    color: green;
+  }
+  .approve{
+  flex-direction: row;
+  } 

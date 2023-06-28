@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "fname": "neha",
+      "lname": "patle",
+      "email": "hhjdjdjjd",
+      "contact": "8830123",
+      "username": "qewrgv",
+      "password": "qersiso",
+      "dept": "Civil Eng",
+      "userole": "HOD",
+      "id": 4
+    },
+    {
+      "fname": "vitthal ",
+      "lname": "Suvarnkar",
+      "email": "vitthalsuvarnkar143@gmail.com",
+      "contact": "879900877",
+      "username": "test@123",
+      "password": "wertbm123",
+      "dept": "Electrical Eng",
+      "userole": "STAFF",
+      "id": 6
+    },
+    {
+      "fname": "vitthal",
+      "lname": "Suvarnkar",
+      "email": "vitthalsuvarnkar143@gmail.com",
+      "Contact": "8830694527",
+      "username": "vs2105",
+      "password": "zaq1ZAQ!",
+      "dept": "Electrical Eng",
+      "userole": "HOD",
+      "id": 14
+    },
+    {
+      "fname": "rahul",
+      "lname": "patil",
+      "email": "rahul@123gmail.com",
+      "Contact": "8830694527",
+      "username": "rahul@123",
+      "password": "Rahul@123",
+      "dept": "Computer Science",
+      "userole": "STAFF",
+      "id": 15
+    },
+    {
+      "fname": "sumit",
+      "lname": "patil",
+      "email": "sumit123@gmail.com",
+      "Contact": "9485758489",
+      "username": "sumit@123",
+      "password": "Sumit@123",
+      "dept": "Data Science",
+      "userole": "STAFF",
+      "id": 16
+    }
+  ],
+  "leave": [
+    {
+      "startdate": "2023-06-29T18:30:00.000Z",
+      "enddate": "2023-07-09T18:30:00.000Z",
+      "reason": "ffghhfdd",
+      "status": "Rejected",
+      "name": "vs2105",
+      "leavedays": 11,
+      "id": 1
+    },
+    {
+      "startdate": "2023-06-28T18:30:00.000Z",
+      "enddate": "2023-06-29T18:30:00.000Z",
+      "reason": "function",
+      "status": "Approved",
+      "name": "sumit@123",
+      "leavedays": 2,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
